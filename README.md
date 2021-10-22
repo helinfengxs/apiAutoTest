@@ -3,6 +3,18 @@
 # 用例数据
 用例数据存放于yaml文件中，yaml文件存放在source目录下
 # yaml数据约定规则
+![image](https://user-images.githubusercontent.com/58164963/138423657-9822597b-77c4-43a0-81a6-648754db5155.png)
+
+字段解释：
+#### config
+    config:字段描述全局配置
+    name:描述用于测试报告标题
+    variables：描述全局公共参数存放
+    base_url：描述请求环境地址
+#### HelloCases
+    HelloCases（自定义）:描述需要测试的接口用例集名称
+    common(不变)：用例集公共配置，包括请求头，请求参数，请求类型，请求地址字段，都不可变
+    
 1.测试集名与测试类名保持一致;
 
 2.参数值前缀带有$，表示执行该条用例会替换全局参数中的列表中存放的值；
