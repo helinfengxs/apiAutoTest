@@ -18,12 +18,14 @@
         return CommonParam.newCasesData.get("QueryCases");
 ```
 3.写入测试类
+```
 public class QueryCases {
     @Test(dataProvider = "query",dataProviderClass = Datas.class)
     public void queryTest(Object obj){
         Utils.runCase(obj);
     }
 }
+```
 4.xml文件加入该测试类，并引入监听类
 ![image](https://user-images.githubusercontent.com/58164963/138423195-7cf45a7d-a95a-4a06-95b3-afd314a2214f.png)
 5.运行xml文件，工程根目录下生成html测试报告
