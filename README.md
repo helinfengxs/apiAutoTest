@@ -30,22 +30,28 @@
 
 2.在DataProvider-Datas中，写入DataProvider，需要什么测试数据，根据测试类名获取
 ```
-    @DataProvider(name = "query")
-    public static Object[][] query(){
-        return CommonParam.newCasesData.get("QueryCases");
+public class Datas {
+    @DataProvider(name = "login")
+    public static Object[][] init(){
+        return CommonParam.newCasesData.get("HelloCases");
+    }
+   } 
 ```
 
 3.写入测试类
 
 ```
-public class QueryCases {
-    @Test(dataProvider = "query",dataProviderClass = Datas.class)
-    public void queryTest(Object obj){
+public class HelloCases {
+
+    @Test(dataProvider = "login",dataProviderClass = Datas.class)
+    public void test(Object obj){
         Utils.runCase(obj);
     }
 }
 ```
 4.xml文件加入该测试类，并引入监听类
+
 ![image](https://user-images.githubusercontent.com/58164963/138423195-7cf45a7d-a95a-4a06-95b3-afd314a2214f.png)
+
 5.运行xml文件，工程根目录下生成html测试报告
 
