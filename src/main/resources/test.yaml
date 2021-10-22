@@ -1,0 +1,213 @@
+- config:
+    name: 触达中台接口测试用例
+    variables:
+      
+      {
+          HeaccountNo: "test_he_001",
+          roleCode: "admin-001",
+          tenantCode: "yixi001",
+          accountName: "s06msstvto",
+          password: "9GPeN0kcS4j3Gn7e",
+          testName_1: "Cxtest002",
+          poiid: "test",
+          empNo: "helinfeng159",
+          clientRelTenant: "hetest@123",
+          roleCode_perm: "admin1",
+          tenantCode_perm: "System",
+          accountName_perm: "bUZRbyD6hX",
+          password_perm: "tJu4pbehKFuDd9PaW02O",
+          testName_perm: "Cxtest002",
+          "token": "token is good"
+      }
+    request:
+      #项目url
+#      base_url: https://api-dev.deepeleph.com
+      base_url: http://localhost:8888
+
+
+- HelloCases:
+    - common:
+        request:
+          url: "/test/hello"
+          method: "post"
+          header: {
+            Content-Type: application/json
+          }
+          #参数json格式提交 ; 表单提交}
+          json: {
+            "name": "xiao",
+            "age": 20
+          }
+    #用例方法名称
+    - helloTest:
+        name: "账号错误登录用例"
+        request:
+          body: {
+
+          }
+          extract: {
+            message: "loginMessage"
+          }
+          assertFilePath: success
+    - errorTest:
+        name: "正确账号登录用例"
+        request:
+          body: {
+                  "name": "$loginMessage"
+          }
+          assertFilePath: fail
+- QueryCases:
+    - common:
+        request:
+          url: "/test/query"
+          method: "get"
+          header: {
+            Content-Type: application/json
+          }
+          json: {
+            "paramName": "测试",
+            "isRequired": true,
+            "lenMax": 20,
+            "lenMin": 20,
+            "type": "string",
+            "isPhone": false,
+            "isEmail": false,
+          }
+    - queryTest:
+        name: "正确查询用户信息用例"
+        request:
+          extract: {
+            message: "queryMessage"
+          }
+          assertFilePath: success
+    - queryNameError:
+        name: "查询用户信息paramName参数传入错误值"
+        request:
+          body: {
+                  "paramName": "$queryMessage",
+                    "isPhone": true
+          }
+          assertFilePath: fail
+##模块名称 :修改角色
+#- RoleUpdateCases:
+#    - common:
+#        request:
+#          url: /user/center/v1/role/update
+#          method: post
+#          header: {
+#            Content-Type: application/json
+#          }
+#          #参数json格式提交 ; 表单提交 }
+#          json: {
+#            "requestId": ,
+#            "token": $token,
+#            "tenantCode": $tenantCode,
+#            "roleCode": $roleCode,
+#            "roleName": "修改管理员1",
+#            "perms": [ "perm_manager", "perm_query" ]
+#          }
+#    - roleUpdate:
+#        #用例名称
+#        name: "修改角色"
+#        request:
+#          body:
+#            "token": error
+#          #需要提取的参数，并存放再全局参数列表中，便于后续其他接口提取，后续使用，使用$作为前置标识符
+#          extract: {
+#
+#          }
+#          #断言内容，状态码200，默认断言
+#          assertFilePath: success
+#    - missToken:
+#        name: "token不传入"
+#        request:
+#          body: {
+#            "@token": "",
+#          }
+#          extract: {
+#            requestId: requestId
+#          }
+#          assertFilePath: success
+#    - missTenantCode:
+#        name: "tenantCode不传入"
+#        request:
+#          body: {
+#            "@tenantCode": "",
+#          }
+#          extract: {
+#            requestId: requestId
+#          }
+#          assertFilePath: success
+#    - missRoleCode:
+#        name: "roleCode不传入"
+#        request:
+#          body: {
+#            "@roleCode": "",
+#          }
+#          extract: {
+#            requestId: requestId
+#          }
+#          assertFilePath: success
+#    - missRoleName:
+#        name: "roleName不传入"
+#        request:
+#          body: {
+#            "@roleName": "",
+#          }
+#          extract: {
+#            requestId: requestId
+#          }
+#          assertFilePath: success
+#    - tenantCodeIsError:
+#        name: "传入错误的租户编码，更新角色"
+#        request:
+#          body: {
+#            "tenantCode": "isError2021",
+#          }
+#          extract: {
+#            requestId: requestId
+#          }
+#          assertFilePath: success
+#    - roleCodeIsError:
+#        name: "传入错误的角色编码，更新角色"
+#        request:
+#          body: {
+#            "roleCode": "isErrorCode2021",
+#          }
+#          extract: {
+#            requestId: requestId
+#          }
+#          assertFilePath: success
+#- CreateRoleCases:
+#    - common:
+#        request:
+#          url: "/test/create"
+#          method: "post"
+#          header: {
+#            Content-Type: application/json
+#          }
+#          #参数json格式提交 ; 表单提交}
+#          json: {
+#            "name": $roleCode,
+#            "age": 10
+#          }
+#    #用例方法名称
+#    - createRole:
+#        name: "正确创建角色"
+#        request:
+#          extract:
+#            data.token: token
+#          assertFilePath: fail
+#    - missName:
+#        name: "正确创建角色"
+#        request:
+#          body: {
+#              "@name": "getPhone"
+#          }
+#          extract:
+#            data.token: token
+#          assertFilePath: fail
+
+
+
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="自动化测试">
+
+
+  <test  name="apiAutoTest" >
+    <classes>
+
+      <class name="cases.QueryCases"> </class>
+
+    </classes>
+  </test> 
+  <listeners>
+    <listener class-name="listener.ReportListener"> </listener>
+    <listener class-name="listener.CustomizeListener"> </listener>
+  </listeners>
+</suite> 

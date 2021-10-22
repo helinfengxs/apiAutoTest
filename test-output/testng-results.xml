@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="自动化测试" duration-ms="16" started-at="2021-10-19T07:01:52Z" finished-at="2021-10-19T07:01:52Z">
+    <groups>
+    </groups>
+    <test name="apiAutoTest" duration-ms="16" started-at="2021-10-19T07:01:52Z" finished-at="2021-10-19T07:01:52Z">
+      <class name="suite.SuiteUtil">
+        <test-method status="PASS" signature="initData()[pri:0, instance:suite.SuiteUtil@7fe8ea47]" name="initData" is-config="true" duration-ms="15" started-at="2021-10-19T15:01:52Z" finished-at="2021-10-19T15:01:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initData -->
+      </class> <!-- suite.SuiteUtil -->
+      <class name="cases.HelloCases">
+        <test-method status="PASS" signature="test01()[pri:0, instance:cases.TestCases@58fdd99]" name="test01" duration-ms="16" started-at="2021-10-19T15:01:52Z" finished-at="2021-10-19T15:01:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test01 -->
+      </class> <!-- cases.HelloCases -->
+    </test> <!-- apiAutoTest -->
+  </suite> <!-- 自动化测试 -->
+</testng-results>
