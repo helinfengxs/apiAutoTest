@@ -27,13 +27,16 @@
 
 # 运行方式
 1.准备yaml文件数据
+
 2.在DataProvider-Datas中，写入DataProvider，需要什么测试数据，根据测试类名获取
 ```
     @DataProvider(name = "query")
     public static Object[][] query(){
         return CommonParam.newCasesData.get("QueryCases");
 ```
+
 3.写入测试类
+
 ```
 public class QueryCases {
     @Test(dataProvider = "query",dataProviderClass = Datas.class)
